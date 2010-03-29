@@ -11,6 +11,10 @@
 
   $ git diff | e
 
+- And save the result of an edit.
+
+  $ git diff | e > annotated_patch
+
 - Run a script as soon as you write it.
 
   $ e test.pl | perl
