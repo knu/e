@@ -2,19 +2,29 @@
 
 ## Usage
 
-- You must be invoking the editor hundreds of times everyday.
-  Why waste types?  Even `vi' is too long for you.
+- You invoke the editor of your choice hundreds of times everyday.
+  Why not save typing?  `emacs` is way too long, even `vi` is one too
+  many.  Start using `e` from now on.
 
-  $ e anyfile
+        $ e anyfile
 
-- Sometimes you want to open the result of a command with your editor.
+- Sometimes you want to open the output of a command with the editor.
 
-  $ git diff | e
+        $ git diff | e
 
 - And save the result of an edit.
 
-  $ git diff | e > annotated_patch
+        $ git diff | e > annotated.patch
 
-- Run a script as soon as you write it.
+- Run a script as soon as you finish writing it.
 
-  $ e test.pl | perl
+        $ e test.pl | perl
+
+* When running an editor in the middle of pipes and redirection, you
+  normally need to add `` <`tty` `` and/or `` >`tty` `` to connect the
+  editor to the current terminal, but with `e` you can just forget
+  about it.
+
+        $ grep -lr keyword . | xargs -n1 e`
+
+        $ grep -lr keyword . | while read f; do e "$f"; done
