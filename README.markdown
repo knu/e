@@ -15,9 +15,9 @@ enhances any editor with some neat features described below.
 
 ## USAGE
 
-If you have the environment variable `EDITOR`, then you are ready to
-run `e`.  You can just drop the alias or symlink pointing to your
-editor.  `e` is much more than an alias.
+If you have the environment variable `EDITOR` defined, then you are
+ready to run `e`.  You can just drop the alias or symlink pointing to
+your editor.  `e` is much more than an alias.
 
 - You invoke the editor of your choice hundreds of times everyday, so
   the command name has to be short.  "`vi`" looks fine, but still it's
@@ -46,26 +46,27 @@ editor.  `e` is much more than an alias.
   `` <`tty` `` and/or `` >`tty` `` around even if you are in the
   middle of pipes and redirection.
 
-        $ grep -lr keyword . | xargs -n1 e`
+        $ grep -lr keyword . | xargs -n1 e
 
         $ grep -lr keyword . | while read f; do e "$f"; done
 
-- As a bonus for non-vi users, `e` offers support for "`+/PATTERN`"
-  to non-vi editors like Emacs, etc..
+- As a bonus for non-vi users, `e` offers support for "`+/PATTERN`" to
+  all editors including Emacs.
 
         # EDITOR="emacsclient -t"
         $ e +/'^main' prog.c
         # Internally calls egrep(1) and runs $EDITOR, adding "+LINENO"
         # if found.
 
-- `e` makes a postfixed position specifier prefixed so it works
-  with Emacs, etc..
+- `e` takes a position specifier followed by a file name.  This form
+  is exclusively supported by `vi` variants, but `e` changes the
+  parameter order so it works with most editors.
 
         $ e prog.rb +42
         # Runs `$EDITOR +42 prog.rb`
 
-- `e` understands the "`FILENAME:LINENO`" format, which is
-  converted to "`+LINENO FILENAME`" if a file named `FILENAME` exists.
+- `e` understands the "`FILENAME:LINENO`" format, which is converted
+  to "`+LINENO FILENAME`" if a file named `FILENAME` exists.
 
         $ e /path/to/file.rb:1218
         # Runs `$EDITOR +1218 /path/to/file.rb`
@@ -74,7 +75,7 @@ editor.  `e` is much more than an alias.
 
 - `EDITOR`
 
-        The command (or command line) `e(1)` invokes.
+        The command (or command line) e(1) invokes.
 
 ## AUTHOR
 
