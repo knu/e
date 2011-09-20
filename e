@@ -1,6 +1,4 @@
 #!/bin/sh
-#
-# $Id: e 1034 2008-10-17 09:52:11Z knu $
 
 tmpfile=
 output=
