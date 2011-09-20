@@ -32,6 +32,21 @@ is_pos () {
     return 1
 }
 
+editor_progname () {
+    local arg
+
+    for arg; do
+        case "$arg" in
+            *'='*|*/env|env)
+                continue
+                ;;
+            *)
+                echo "${arg##*/}"
+                ;;
+        esac
+    done
+}
+
 main () {
     local first_file file pos line
 
@@ -101,22 +116,22 @@ main () {
     fi
 
     if [ -n "$pos" -a -n "$first_file" ]; then
-        case "${EDITOR##*/}" in
-            *vi*)
-                set -- "+$pos" "$@"
-                ;;
-            *)
-                case "$pos" in
-                    /*)
+        case "$pos" in
+            /*)
+                case "$(editor_progname $EDITOR)" in
+                    *vi|*vim)
+                        set -- "+$pos" "$@"
+                        ;;
+                    *)
                         line="$(egrep -n "${pos#/}" "$first_file" | head -n1)"
                         if [ -n "$line" ]; then
                             set -- "+${line%:*}" "$@"
                         fi
                         ;;
-                    *)
-                        set -- "+$pos" "$@"
-                        ;;
                 esac
+                ;;
+            *)
+                set -- "+$pos" "$@"
                 ;;
         esac
     fi
