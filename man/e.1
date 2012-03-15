@@ -1,0 +1,126 @@
+.Dd March 15, 2012
+.Dt E 1
+.Os FreeBSD
+.Sh NAME
+.Nm e
+.Nd a smart wrapper for
+.Sq Li Pf "$" Ev EDITOR
+.Sh SYNOPSIS
+.Nm
+.Oo
+.Op Ar +LINENO | Ar +/PATTERN
+.Ar FILENAME
+.Op Ar +LINENO | Ar +/PATTERN
+.Ar ...
+.Oc
+.Sh DESCRIPTION
+.Nm
+is a smart wrapper for
+.Sq Li Pf "$" Ev EDITOR
+written in Bourne shell.  It enhances any editor with some user
+friendly features described below.
+.Sh ENVIRONMENT
+.Bl -tag -width EDITOR
+.It Ev EDITOR
+The command (or command line) wrapped around and invoked by this
+wrapper.
+.El
+.Sh EXAMPLES
+If you have the environment variable
+.Ev EDITOR
+defined, then you are ready to run
+.Nm .
+You can just drop the alias or symlink pointing to your editor.
+.Nm
+is much more than an alias.
+.Pp
+.Bl -dash
+.It
+You invoke the editor of your choice hundreds of times everyday, so
+the command name has to be short.
+.Pp
+.Sq Nm vi
+may look fine, but still it's one stroke too many.  Start using
+.Sq Nm
+from now on and save your precious time.
+.Pp
+.Dl "# In your shell's profile"
+.Dl "EDITOR=vi; export EDITOR"
+.Pp
+.Dl "$ e anyfile"
+.Pp
+.It
+.Nm
+takes input from stdin so you can open the output of a command with
+the editor.
+.Pp
+.Dl "$ git diff | e"
+.Pp
+.It
+.Nm
+prints the edited content if so requested.
+.Pp
+.Dl "$ e test.pl | perl"
+.Pp
+.It
+Combining the above two, you can use
+.Nm
+as a filter in which you can edit an intermediate output just as you
+want.
+.Pp
+.Dl "$ git diff | e > annotated.patch"
+.Pp
+.It
+As you may have noticed, with
+.Nm
+you can forget about adding
+.Qq "<`tty`"
+and/or
+.Qq ">`tty`"
+around even if you are in the middle of pipes and redirection.
+.Pp
+.Dl "$ grep -lr keyword . | xargs -n1 e"
+.Pp
+.Dl "$ grep -lr keyword . | while read f; do e" \&"$f\&"; "done"
+.Pp
+.It
+As a bonus for non-vi users,
+.Nm
+offers support for
+.Dq "+/PATTERN"
+to all editors including Emacs.
+.Pp
+.Dl "#" EDITOR=\&"emacsclient -t\&"
+.Dl "$ e +/'^main' prog.c"
+.Dl "# Internally calls egrep(1) and runs $EDITOR, adding" \&"+LINENO\&"
+.Dl "# if found."
+.Pp
+.It
+.Nm
+takes a position specifier followed by a file name.  This form is
+exclusively supported by vi variants, but
+.Nm
+changes the parameter order so it works with most editors.
+.Pp
+.Dl "$ e prog.rb +42"
+.Dl "# Runs" \&"$EDITOR +42 prog.rb\&"
+.Pp
+.It
+.Nm
+understands the
+.Dq "FILENAME:LINENO"
+format, which is converted to
+.Dq "+LINENO FILENAME"
+if a file named
+.Dq Pa FILENAME
+exists.
+.Pp
+.Dl "$ e /path/to/file.rb:1218"
+.Dl "# Runs" \&"$EDITOR +1218 /path/to/file.rb\&"
+.Pp
+.Sh SEE ALSO
+.Xr egrep 1 ,
+.Xr emacsclient 1 ,
+.Xr vi 1
+.Sh AUTHOR
+.An Akinori MUSHA Aq knu@iDaemons.org
