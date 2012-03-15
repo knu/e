@@ -27,7 +27,7 @@
 # OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 # SUCH DAMAGE.
 
-VERSION="0.1.0"
+VERSION="0.1.1"
 
 tmpfile=
 output=
@@ -78,6 +78,11 @@ editor_progname () {
 
 main () {
     local first_file file pos line
+
+    if [ -z ${EDITOR+1} ]; then
+        echo EDITOR must be set. >&2
+        exit 255
+    fi
 
     if [ ! -e "$TTY" ]; then
         TTY="$(tty)"
