@@ -11,19 +11,27 @@
 ## DESCRIPTION
 
 `e(1)` is a smart wrapper for `$EDITOR` written in Bourne shell.  It
-enhances any editor with some neat features described below.
+enhances any editor with some user friendly features described below.
 
-## USAGE
+## ENVIRONMENT
+
+- `EDITOR`
+
+    The command (or command line) wrapped around and invoked by this
+    wrapper.
+
+## EXAMPLES
 
 If you have the environment variable `EDITOR` defined, then you are
 ready to run `e`.  You can just drop the alias or symlink pointing to
 your editor.  `e` is much more than an alias.
 
 - You invoke the editor of your choice hundreds of times everyday, so
-  the command name has to be short.  "`vi`" looks fine, but still it's
-  one stroke too many.  Start using `e` from now on and save your
+  the command name has to be short.  "`vi`" may look fine, but still
+  it's one stroke too many.  Start using `e` from now on and save your
   precious time.
 
+        # In your shell's profile
         # EDITOR=vi; export EDITOR
 
         $ e anyfile
@@ -59,7 +67,7 @@ your editor.  `e` is much more than an alias.
         # if found.
 
 - `e` takes a position specifier followed by a file name.  This form
-  is exclusively supported by `vi` variants, but `e` changes the
+  is exclusively supported by vi variants, but `e` changes the
   parameter order so it works with most editors.
 
         $ e prog.rb +42
@@ -71,11 +79,11 @@ your editor.  `e` is much more than an alias.
         $ e /path/to/file.rb:1218
         # Runs `$EDITOR +1218 /path/to/file.rb`
 
-## ENVIRONMENT
+## SEE ALSO
 
-- `EDITOR`
-
-        The command (or command line) e(1) invokes.
+[`egrep(1)`](http://www.freebsd.org/cgi/man.cgi?query=egrep&sektion=1),
+[`emacsclient(1)`](http://www.freebsd.org/cgi/man.cgi?query=emacsclient&sektion=1&manpath=FreeBSD+Ports),
+[`vi(1)`](http://www.freebsd.org/cgi/man.cgi?query=vi&sektion=1)
 
 ## AUTHOR
 
