@@ -1,8 +1,8 @@
-# e - a wrapper script for `$EDITOR`
+# e - a smart wrapper for `$EDITOR`
 
 ## NAME
 
-`e(1) - a wrapper script for $EDITOR`
+`e(1) - a smart wrapper for $EDITOR`
 
 ## SYNOPSIS
 
@@ -10,7 +10,7 @@
 
 ## DESCRIPTION
 
-`e(1)` is a wrapper script for `$EDITOR` written in Bourne shell.  It
+`e(1)` is a smart wrapper for `$EDITOR` written in Bourne shell.  It
 enhances any editor with some neat features described below.
 
 ## USAGE
@@ -79,7 +79,7 @@ your editor.  `e` is much more than an alias.
 
 ## AUTHOR
 
-Copyright (c) 2009, 2010, 2011 Akinori MUSHA.
+Copyright (c) 2009, 2010, 2011, 2012 Akinori MUSHA.
 
 Licensed under the 2-clause BSD license.  See `LICENSE.txt` for
 details.

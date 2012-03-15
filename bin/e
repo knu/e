@@ -1,8 +1,8 @@
 #!/bin/sh
 #
-# e(1) - a wrapper script for $EDITOR
+# e(1) - a smart wrapper for $EDITOR
 #
-# Copyright (c) 2009, 2010, 2011 Akinori MUSHA
+# Copyright (c) 2009, 2010, 2011, 2012 Akinori MUSHA
 #
 # All rights reserved.
 #
