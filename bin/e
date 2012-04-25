@@ -157,7 +157,7 @@ main () {
                         set -- "+$pos" "$@"
                         ;;
                     *)
-                        line="$(egrep -n "${pos#/}" "$first_file" | head -n1)"
+                        line="$(grep -En "${pos#/}" "$first_file" | head -n1)"
                         if [ -n "$line" ]; then
                             set -- "+${line%:*}" "$@"
                         fi

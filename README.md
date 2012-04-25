@@ -63,7 +63,7 @@ your editor.  `e` is much more than an alias.
 
         # EDITOR="emacsclient -t"
         $ e +/'^main' prog.c
-        # Internally calls egrep(1) and runs $EDITOR, adding "+LINENO"
+        # Internally calls grep(1) with -E and runs $EDITOR, adding "+LINENO"
         # if found.
 
 - `e` takes a position specifier followed by a file name.  This form
@@ -81,7 +81,7 @@ your editor.  `e` is much more than an alias.
 
 ## SEE ALSO
 
-[`egrep(1)`](http://www.freebsd.org/cgi/man.cgi?query=egrep&sektion=1),
+[`grep(1)`](http://www.freebsd.org/cgi/man.cgi?query=grep&sektion=1),
 [`emacsclient(1)`](http://www.freebsd.org/cgi/man.cgi?query=emacsclient&sektion=1&manpath=FreeBSD+Ports),
 [`vi(1)`](http://www.freebsd.org/cgi/man.cgi?query=vi&sektion=1)
 

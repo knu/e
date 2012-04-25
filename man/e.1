@@ -92,7 +92,7 @@ to all editors including Emacs.
 .Pp
 .Dl "#" EDITOR=\&"emacsclient -t\&"
 .Dl "$ e +/'^main' prog.c"
-.Dl "# Internally calls egrep(1) and runs $EDITOR, adding" \&"+LINENO\&"
+.Dl "# Internally calls grep(1) with -E and runs $EDITOR, adding" \&"+LINENO\&"
 .Dl "# if found."
 .Pp
 .It
@@ -119,7 +119,7 @@ exists.
 .Dl "# Runs" \&"$EDITOR +1218 /path/to/file.rb\&"
 .Pp
 .Sh SEE ALSO
-.Xr egrep 1 ,
+.Xr grep 1 ,
 .Xr emacsclient 1 ,
 .Xr vi 1
 .Sh AUTHOR
