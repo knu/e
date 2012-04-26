@@ -170,6 +170,10 @@ main () {
         esac
     fi
 
+    if [ -z "$output" -a -z "$tmpfile" ]; then
+        exec $EDITOR "$@"
+    fi
+
     $EDITOR "$@"
     ret="$?"
 
