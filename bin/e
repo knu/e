@@ -2,7 +2,7 @@
 #
 # e(1) - a smart wrapper for $EDITOR
 #
-# Copyright (c) 2009, 2010, 2011, 2012 Akinori MUSHA
+# Copyright (c) 2009-2026 Akinori MUSHA
 #
 # All rights reserved.
 #
@@ -171,7 +171,7 @@ main () {
     fi
 
     if [ -z "$output" -a -z "$tmpfile" ]; then
-        exec $EDITOR "$@"
+        eval exec $EDITOR '"$@"'
     fi
 
     $EDITOR "$@"

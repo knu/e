@@ -87,7 +87,7 @@ your editor.  `e` is much more than an alias.
 
 ## AUTHOR
 
-Copyright (c) 2009, 2010, 2011, 2012 Akinori MUSHA.
+Copyright (c) 2009-2026 Akinori MUSHA.
 
 Licensed under the 2-clause BSD license.  See `LICENSE.txt` for
 details.
