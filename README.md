@@ -13,6 +13,16 @@
 `e(1)` is a smart wrapper for `$EDITOR` written in Bourne shell.  It
 enhances any editor with some user friendly features described below.
 
+## INSTALLATION
+
+Install with [mise](https://mise.jdx.dev/):
+
+```sh
+mise use -g github:knu/e@latest
+```
+
+Set `EDITOR` to the editor command you want to use.
+
 ## ENVIRONMENT
 
 - `EDITOR`
